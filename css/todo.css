@@ -1,0 +1,25 @@
+/* 
+    Document   : todo
+    Created on : 2013/07/19, 10:30:38
+    Author     : yasunishi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    background-repeat   : no-repeat;
+}
+
+#container{
+    position: relative;
+}
+
+#todobody{
+    position:absolute;
+    top: 0; left: 0;
+}
+
+.todocel{
+    background-color: #FFF;
+    float:left;
+}

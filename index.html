@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>websocketサンプル</title>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>超簡略化したサンプル</h1>
+
+		<h3>websocketの状態</h3>
+			<span id="websocketStatus"></span>
+
+		<h3>表示</h3>
+			console見てちょ
+
+		<script>
+			var ws = new WebSocket('ws://133.208.21.190:5000/ws');
+
+			ws.onopen = function(){
+				$('#websocketStatus').text('通信中だよ');
+			};
+
+			ws.onclose = function(ev){
+				$('#websocketStatus').text('遮断中だよ');
+			};
+
+			ws.onmessage = function(ev){
+				console.log(ev.data);
+				//var json = JSON.parse(ev.data);
+
+				//console.log(json);
+			};
+
+		</script>
+	</body>
+</html>
