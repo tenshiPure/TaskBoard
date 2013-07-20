@@ -6,7 +6,7 @@
 // 写真データ
 var pictureData = [
     {
-        filename : "yoshitakayuriko_i15.jpg",
+        filename : "yoshitakayuriko.jpg",
         splitBox : [
             [ '1_1', '1_2', '1_3'],
             [ '2_1', '2_2', '2_3'],
@@ -184,7 +184,7 @@ $(function(){
     
 //    document.body.style.backgroundImage = "url(" + "idol/"+pictureData[0].filename + ")";
     todoShow.pictureData = pictureData[0];
-    $('#idolimage').attr("src", "static/idol/"+todoShow.pictureData.filename);
+    $('#idolimage').attr("src", "static/image/idol/"+todoShow.pictureData.filename);
     // 画像サイズの取得
     $('#idolimage').bind('load',function(){
         todoShow.pictureWidth = $("#idolimage").width();

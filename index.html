@@ -1,36 +1,35 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>websocketサンプル</title>
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	</head>
-	<body>
-		<h1>超簡略化したサンプル</h1>
+    <head>
+        <title>タスクボード</title>
 
-		<h3>websocketの状態</h3>
-			<span id="websocketStatus"></span>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-		<h3>表示</h3>
-			console見てちょ
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
-		<script>
-			var ws = new WebSocket('ws://133.208.21.190:5000/ws');
+        <link href="static/css/bootstrap.css" rel="stylesheet">
+        <link href="static/css/todo.css" rel="stylesheet">
 
-			ws.onopen = function(){
-				$('#websocketStatus').text('通信中だよ');
-			};
-
-			ws.onclose = function(ev){
-				$('#websocketStatus').text('遮断中だよ');
-			};
-
-			ws.onmessage = function(ev){
-				console.log(ev.data);
-				//var json = JSON.parse(ev.data);
-
-				//console.log(json);
-			};
-
-		</script>
-	</body>
+        <script src="static/js/bootstrap.min.js"></script>
+        <script src="static/js/todo.js"></script>
+        <script src="static/js/websocket.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="row">
+                <div class="span6">
+                    <img id="idolimage"/>
+                    <div id="todobody">
+                    </div>
+                </div>
+                <div class="span6">
+                    付箋を登録！<input type="text" id="todoInput" />
+                    <div id="drop">
+                        ゴミ箱
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

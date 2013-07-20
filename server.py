@@ -1,15 +1,17 @@
 from tornado import websocket, web, ioloop
 import tornado
-from HentaiAPI import HentaiAPI
+import sys
 import os.path
+
+sys.path.append('module')
+from HentaiAPI import HentaiAPI
 
 clients = []
 
 class IndexHandler(tornado.web.RequestHandler):
 
 	def get(self):
-		#self.render("index.html")
-		self.render("index_yasu.html")
+		self.render("index.html")
 
 class SocketHandler(tornado.websocket.WebSocketHandler):
 
@@ -112,5 +114,6 @@ if __name__ == '__main__':
 
 	app = tornado.web.Application(handlers, **settings)
 
-	app.listen(5000)
+	port = 8080 if os.name == 'nt' else 5000
+	app.listen(port)
 	tornado.ioloop.IOLoop.instance().start()
