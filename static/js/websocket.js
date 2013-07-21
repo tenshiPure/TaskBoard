@@ -1,11 +1,14 @@
-var ws = new WebSocket('ws://133.208.21.190:5000/ws');
+if (navigator.platform === 'Win32')
+	var ws = new WebSocket('ws://127.0.0.1:8080/ws');
+else
+	var ws = new WebSocket('ws://133.208.21.190:5000/ws');
 
 ws.onopen = function(){
-	console.log('通信開始！');
+	console.log('WebSocket open！');
 };
 
 ws.onclose = function(ev){
-	console.log('通信終了！');
+	console.log('WebSocket close！');
 };
 
 ws.onmessage = function(ev){

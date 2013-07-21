@@ -9,12 +9,10 @@ from HentaiAPI import HentaiAPI
 clients = []
 
 class IndexHandler(tornado.web.RequestHandler):
-
 	def get(self):
 		self.render("index.html")
 
 class SocketHandler(tornado.websocket.WebSocketHandler):
-
 	def open(self):
 		if self not in clients:
 			clients.append(self)
@@ -24,7 +22,6 @@ class SocketHandler(tornado.websocket.WebSocketHandler):
 			clients.remove(self)
 
 class Select(tornado.web.RequestHandler):
-
 	@tornado.web.asynchronous
 	def get(self, *args):
 		id = self.get_argument("id")
@@ -38,10 +35,8 @@ class Select(tornado.web.RequestHandler):
 		self.finish()
 
 class SelectAll(tornado.web.RequestHandler):
-
 	@tornado.web.asynchronous
 	def get(self, *args):
-
 		api = HentaiAPI()
 		apiResult = api.selectAll()
 
@@ -49,10 +44,8 @@ class SelectAll(tornado.web.RequestHandler):
 		self.finish()
 
 class Create(tornado.web.RequestHandler):
-
 	@tornado.web.asynchronous
 	def post(self, *args):
-		self.finish()
 		text = self.get_argument("text")
 
 		api = HentaiAPI()
@@ -61,20 +54,9 @@ class Create(tornado.web.RequestHandler):
 		for client in clients:
 			client.write_message(apiResult)
 
-class Update(tornado.web.RequestHandler):
-
-	@tornado.web.asynchronous
-	def post(self, *args):
-		id = self.get_argument("id")
-		text = self.get_argument("text")
-
-		api = HentaiAPI()
-		apiResult = api.update(id, text)
-
 		self.finish()
 
 class Done(tornado.web.RequestHandler):
-
 	@tornado.web.asynchronous
 	def post(self, *args):
 		id = self.get_argument("id")
@@ -88,7 +70,6 @@ class Done(tornado.web.RequestHandler):
 		self.finish()
 
 class DbClear(tornado.web.RequestHandler):
-
 	@tornado.web.asynchronous
 	def get(self, *args):
 		api = HentaiAPI()
@@ -103,7 +84,6 @@ if __name__ == '__main__':
 		(r'/select', Select),
 		(r'/select_all', SelectAll),
 		(r'/create', Create),
-		(r'/update', Update),
 		(r'/done', Done),
 		(r'/db_clear', DbClear),
 	]

@@ -1,37 +1,36 @@
-/* 
-    Document   : todo
-    Created on : 2013/07/19, 10:30:38
-    Author     : yasunishi
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-body {
+body{
     background-repeat   : no-repeat;
 }
+
 #container{
     position: relative;
 }
+
 #todobody{
     position:absolute;
     top: 0; left: 0;
 }
+
 #todoInput {
     width: 300px;
     margin: 20px;
 }
+
 #idolimage{
     float:left;    
 }
+
 #drop {
     height: 500px;
     border: 1px solid #000000;
 }
-.todocel{
+
+.todocell{
     background-color: #FFF;
     float:left;
 }
-.todocel_null{
+
+.todocell_null{
     float:left;
 }
 

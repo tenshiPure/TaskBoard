@@ -37,11 +37,11 @@ class HentaiAPI():
 
 		return HentaiHelper.convertJson(dict)
 
-	def update(self, id, text):
-		before = self._selectByDict(id)
-		after = HentaiHelper.createDict(id, text, before['status'])
+#	def update(self, id, text):
+#		before = self._selectByDict(id)
+#		after = HentaiHelper.createDict(id, text, before['status'])
 
-		self.collection.update(before, after)
+#		self.collection.update(before, after)
 
 	def done(self, id):
 		before = self._selectByDict(id)
